@@ -1,5 +1,12 @@
 A [Giter8][g8] template for a Spark Scala sbt project
 
+Usage
+-----
+
+```
+sbt new martinprobson/spark-scala-template.g8
+```
+
 Template license
 ----------------
 Written in 2022 by Martin Robson> martinprobson@gmail.com
