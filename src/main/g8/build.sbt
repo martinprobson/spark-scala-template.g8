@@ -1,4 +1,4 @@
-val sparkVersion = "3.3.0"
+val sparkVersion = "$sparkVersion$"
 
 val spark = Seq(
   "org.apache.spark" %% "spark-core" % sparkVersion % Provided,
