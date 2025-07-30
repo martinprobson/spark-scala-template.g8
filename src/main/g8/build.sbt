@@ -6,17 +6,17 @@ val spark = Seq(
 )
 
 val logging = Seq(
-  "org.slf4j" % "slf4j-api" % "2.0.0-alpha4",
-  "ch.qos.logback" % "logback-classic" % "1.3.0-alpha10",
-  "ch.qos.logback" % "logback-core" % "1.3.0-alpha10",
-  "com.typesafe.scala-logging" %% "scala-logging" % "3.9.4"
+  "org.slf4j" % "slf4j-api" % "2.0.17",
+  "ch.qos.logback" % "logback-classic" % "1.5.18",
+  "ch.qos.logback" % "logback-core" % "1.5.18",
+  "com.typesafe.scala-logging" %% "scala-logging" % "3.9.5"
 )
 
-val config = Seq("com.typesafe" % "config" % "1.4.1", "com.github.andr83" %% "scalaconfig" % "0.7")
+val config = Seq("com.typesafe" % "config" % "1.4.4", "com.github.andr83" %% "scalaconfig" % "0.7")
 
 val test = Seq(
-  "org.scalactic" %% "scalactic" % "3.2.10" % Test,
-  "org.scalatest" %% "scalatest" % "3.2.10" % Test
+  "org.scalactic" %% "scalactic" % "3.2.19" % Test,
+  "org.scalatest" %% "scalatest" % "3.2.19" % Test
 )
 
 lazy val spark_example = (project in file("."))
@@ -28,7 +28,7 @@ lazy val spark_example = (project in file("."))
     libraryDependencies ++= spark,
     libraryDependencies ++= config,
     libraryDependencies ++= test,
-    scalaVersion := "2.13.8"
+    scalaVersion := "2.13.16"
   )
 
 //set spark_example / Test / classLoaderLayeringStrategy := ClassLoaderLayeringStrategy.Flat
@@ -43,7 +43,7 @@ scalacOptions ++= Seq(
 
 Test / fork := true
 
-javacOptions ++= Seq("-source", "11", "-target", "11", "-Xlint")
+javacOptions ++= Seq("-source", "17", "-target", "17", "-Xlint")
 
 assembly / assemblyMergeStrategy := {
   case PathList("META-INF", xs @ _*)       => MergeStrategy.discard
