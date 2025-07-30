@@ -1,5 +1,6 @@
 val sparkVersion = "$sparkVersion$"
 
+// NOTE: Remove the Provided from both dependencies below to allow running locally!!!
 val spark = Seq(
   "org.apache.spark" %% "spark-core" % sparkVersion % Provided,
   "org.apache.spark" %% "spark-sql" % sparkVersion % Provided
@@ -41,7 +42,11 @@ scalacOptions ++= Seq(
   "-Ywarn-dead-code" // Warn when dead code is identified.
 )
 
+// Bypass Java module system....
 Test / fork := true
+Test / javaOptions += "--add-exports=java.base/sun.nio.ch=ALL-UNNAMED"
+run / fork := true
+run / javaOptions += "--add-exports=java.base/sun.nio.ch=ALL-UNNAMED"
 
 javacOptions ++= Seq("-source", "17", "-target", "17", "-Xlint")
 
